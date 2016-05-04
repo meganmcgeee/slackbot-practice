@@ -20,9 +20,16 @@ bot.startRTM((err: Error) => {
 // Simple Response
 
 // Bot responds to a mention
-const mentionAnswer = "You rang?";
+const mentionAnswer = 'You rang?';
+const initDmAnswer = 'Hey, how can I help you?';
+
 
 controller.on('direct_mention', function (bot, message) {
   // reply to _message_ by using the _bot_ object
   bot.reply(message, mentionAnswer);
+});
+
+controller.on('direct_message',function(bot,message) {
+  // reply to _message_ by using the _bot_ object
+  bot.reply(message, initDmAnswer);
 });
